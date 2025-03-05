@@ -4,12 +4,23 @@ import java.util.HashSet;
 
 public class Calculator {
 
-    // Checks if a char is included within a given char hashset
+    /**
+     * Checks to see if a char is included within a given char hashset
+     * 
+     * @param c        the character being checked
+     * @param validVar the hashset that the character is compared to
+     * @return true if the char is within the hashset, false otherwise
+     */
     private boolean isVariable(char c, HashSet<Character> validVar) {
         return validVar.contains(c);
-    }
+    }// end isVariable
 
-    // Implements order of operations to see how important a char is
+    /**
+     * Implements order of operations to see how important a char is
+     * 
+     * @param operator the character being viewed to see precedence
+     * @return the number of the corresponding precedence
+     */
     private int predence(char operator) {
         switch (operator) {
             case '^':
@@ -23,10 +34,15 @@ public class Calculator {
             default:
                 return 0;
         }
-    }
+    }// end precedence
 
-    // infix must include only letters within a-z and operands
-    // +,-,*,/,^,(,)
+    /**
+     * Converts an infix expression to a postfix expression
+     * Must include only a-z variables and only operands + - * / ^ ( )
+     * 
+     * @param infix the infix expression to convert
+     * @return the new postfix expression
+     */
     public String convertToPostfix(String infix) {
         infix = infix.toLowerCase();
         LinkedStack<Character> operatorStack = new LinkedStack<Character>();
@@ -80,5 +96,5 @@ public class Calculator {
         postfix = sb.toString();
         System.out.println(postfix);
         return postfix;
-    }
+    }// end convertToPostfix
 }

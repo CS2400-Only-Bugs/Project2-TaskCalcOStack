@@ -7,15 +7,26 @@ import org.w3c.dom.Node;
 public class LinkedStack<T> implements StackInterface<T> {
     private Node topNode;
 
+    /** Creates an empty Stack */
     public LinkedStack() {
         topNode = null;
-    }
+    }// end LinkedStack constructor
 
+    /**
+     * Adds a new entry to the top of a stack
+     * 
+     * @param newEntry the object to be added as a new entry
+     */
     public void push(T newEntry) {
         Node newNode = new Node(newEntry, topNode);
         topNode = newNode;
     }// end push
 
+    /**
+     * Removes the top entry to the stack
+     * 
+     * @return the removed entry from the stack
+     */
     public T pop() {
         T top = peek();
         if (topNode != null) {
@@ -26,6 +37,11 @@ public class LinkedStack<T> implements StackInterface<T> {
         return top;
     }// end pop
 
+    /**
+     * Views the top entry of the stack
+     * 
+     * @return the viewed top entry of the stack
+     */
     public T peek() {
         if (isEmpty()) {
             throw new EmptyStackException();
@@ -34,14 +50,23 @@ public class LinkedStack<T> implements StackInterface<T> {
         }
     }// end peek
 
+    /** @return true if the stack is empty, false otherwise */
     public boolean isEmpty() {
         return topNode == null;
     }// end isEmpty
 
+    /** Clears the stack */
     public void clear() {
         topNode = null;
     }// end clear
 
+    /**
+     * Constructors for Node
+     * 
+     * @return the data and next node
+     * @param data the data to be stored
+     * @param next the next node
+     */
     private class Node {
         private T data;
         private Node next;
