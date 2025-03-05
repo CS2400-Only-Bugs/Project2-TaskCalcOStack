@@ -1,5 +1,7 @@
 package project2.taskcalcostack;
 
+import java.util.EmptyStackException;
+
 import org.w3c.dom.Node;
 
 public class LinkedStack<T> implements StackInterface<T> {
@@ -10,27 +12,35 @@ public class LinkedStack<T> implements StackInterface<T> {
     }
 
     public void push(T newEntry) {
-
-    }
+        Node newNode = new Node(newEntry, topNode);
+        topNode = newNode;
+    }// end push
 
     public T pop() {
-        T result = null;
-        return result;
-    }
+        T top = peek();
+        if (topNode != null) {
+            topNode = topNode.getNext();
+        } else {
+            throw new EmptyStackException();
+        }
+        return top;
+    }// end pop
 
     public T peek() {
-        T result = null;
-        return result;
-    }
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        } else {
+            return topNode.getData();
+        }
+    }// end peek
 
     public boolean isEmpty() {
-        boolean result = false;
-        return result;
-    }
+        return topNode == null;
+    }// end isEmpty
 
     public void clear() {
-
-    }
+        topNode = null;
+    }// end clear
 
     private class Node {
         private T data;
