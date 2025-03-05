@@ -28,7 +28,7 @@ public class Calculator {
     // infix must include only lowercase letters within a-z and operands
     // +,-,*,/,^,(,)
     public String convertToPostfix(String infix) {
-        LinkedStack operatorStack = new LinkedStack<>();
+        LinkedStack<Character> operatorStack = new LinkedStack<Character>();
         String postfix = null;
         StringBuilder sb = new StringBuilder();
 
@@ -52,7 +52,7 @@ public class Calculator {
                     case '*':
                     case '/':
                         while (!operatorStack.isEmpty()
-                                && predence(nextCharacter) <= predence((Character) operatorStack.peek())) {
+                                && predence(nextCharacter) <= predence(operatorStack.peek())) {
                             sb.append(operatorStack.pop());
                         }
                         operatorStack.push(nextCharacter);
@@ -61,7 +61,7 @@ public class Calculator {
                         operatorStack.push(nextCharacter);
                         break;
                     case ')':
-                        while (operatorStack.peek() != (Character) '(') {
+                        while (operatorStack.peek() != '(') {
                             sb.append(operatorStack.pop());
                         }
                         operatorStack.pop();
