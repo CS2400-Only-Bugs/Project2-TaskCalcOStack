@@ -5,7 +5,7 @@ public class CalculatorTest {
     // just testing if my code works, delete if you want
     /*
      * MAKE SURE
-     * 1) All variables are lowercase
+     * 1) All variables are lowercase and are a-z
      * 2) The only operands are: + - / * ( )
      * 3) There are no spaces within the infix expression
      */
