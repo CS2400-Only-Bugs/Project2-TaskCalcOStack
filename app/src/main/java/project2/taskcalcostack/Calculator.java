@@ -25,9 +25,10 @@ public class Calculator {
         }
     }
 
-    // infix must include only lowercase letters within a-z and operands
+    // infix must include only letters within a-z and operands
     // +,-,*,/,^,(,)
     public String convertToPostfix(String infix) {
+        infix = infix.toLowerCase();
         LinkedStack<Character> operatorStack = new LinkedStack<Character>();
         String postfix = null;
         StringBuilder sb = new StringBuilder();
