@@ -4,18 +4,18 @@ import java.util.EmptyStackException;
  * @author Jayden Briones
  * @version 1.0
  */
-public final class ResizableArray<T> implements StackInterface<T> {
+public final class ResizableArrayStack<T> implements StackInterface<T> {
     private T[] stack;
     private int topIndex;
     private static final int DEFAULT_SIZE = 50;
     private boolean integrityOK = false;
     private static final int MAX_CAPACITY = 10000;
 
-    public ResizableArray(){
+    public ResizableArrayStack(){
         this(DEFAULT_SIZE);
     } // end default constructor
 
-    public ResizableArray(int initialCapacity){
+    public ResizableArrayStack(int initialCapacity){
         integrityOK = false;
         checkCapacity(initialCapacity);
         @SuppressWarnings("unchecked")

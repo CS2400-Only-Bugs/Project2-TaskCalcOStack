@@ -97,4 +97,55 @@ public class Calculator {
         System.out.println(postfix);
         return postfix;
     }// end convertToPostfix
-}
+
+    /**
+     * Evaluates a postfix expression
+     * Input should directly be values rather than variables
+     * Only single digit values should be used
+     * 
+     * @param postfix the postfix expression to convert in String form
+     * @return the evaluation of the postfix expression
+     */
+    public double evaluatePostfix(String postfix) {
+        // Evaluates a postfix expression. 
+        ResizableArrayStack<Integer> valueStack = new ResizableArrayStack<Integer>(0);
+        int operandOne;
+        int operandTwo;
+
+        while (postfix.length() != 0) {
+            char nextCharacter = postfix.charAt(0);
+
+            // remove first character from the postfix string
+            postfix.substring(1);
+
+            switch (nextCharacter) {
+                case '0': case '1': case '2': case '3': case '4':
+                case '5': case '6': case '7': case '8': case '9': 
+                    valueStack.push(Character.getNumericValue(nextCharacter));
+                    break;
+                case '+': 
+                    operandTwo = valueStack.pop();
+                    operandOne = valueStack.pop();
+                    valueStack.push(operandOne + operandTwo);
+                    break;
+                case '-': 
+                    operandTwo = valueStack.pop();
+                    operandOne = valueStack.pop();
+                    valueStack.push(operandOne - operandTwo);
+                    break;
+                case '*': 
+                    operandTwo = valueStack.pop();
+                    operandOne = valueStack.pop();
+                    valueStack.push(operandOne * operandTwo);
+                    break;
+                case '/':
+                    operandTwo = valueStack.pop();
+                    operandOne = valueStack.pop();
+                    valueStack.push(operandOne / operandTwo);
+                    break;
+                default: break; // ignore unexpected values
+            }
+        }
+        return valueStack.peek();
+    }
+} // end evaluatePostFix

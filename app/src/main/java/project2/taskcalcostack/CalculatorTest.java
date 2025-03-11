@@ -11,7 +11,8 @@ public class CalculatorTest {
      */
     public static void main(String[] args) {
         Calculator calc = new Calculator();
-        String infix = "a+b/c";
-        calc.convertToPostfix(infix);
+
+        System.out.println("Testing on the expression, a*b/(c-a)+d*e");
+        calc.convertToPostfix("a*b/(c-a)+d*e");
     }
 }
