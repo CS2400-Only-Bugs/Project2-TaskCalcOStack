@@ -1,6 +1,6 @@
 package project2.taskcalcostack;
 
-public class CalculatorTest {
+public class Main {
 
     // just testing if my code works, delete if you want
     /*
