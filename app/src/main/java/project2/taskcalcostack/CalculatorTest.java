@@ -13,6 +13,10 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
 
         System.out.println("Testing on the expression, a*b/(c-a)+d*e");
-        calc.convertToPostfix("a*b/(c-a)+d*e");
+        System.out.println(calc.convertToPostfix("a*b/(c-a)+d*e"));
+
+        // Assume a = 1, b = 2, c = 3, d = 4, e = 5
+
+        System.out.println(calc.evaluatePostfix("23*42-/56*+"));
     }
 }

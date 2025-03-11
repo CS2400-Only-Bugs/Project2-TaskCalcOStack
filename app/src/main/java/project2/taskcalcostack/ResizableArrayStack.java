@@ -33,7 +33,7 @@ public final class ResizableArrayStack<T> implements StackInterface<T> {
     }//end push
 
     private void ensureCapacity(){
-        if(topIndex >= stack.length - 1){
+        if(topIndex >= stack.length -1){
             int newLength = 2 * stack.length;
             checkCapacity(newLength);
             stack = java.util.Arrays.copyOf(stack, newLength);

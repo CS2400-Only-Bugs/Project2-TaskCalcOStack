@@ -94,7 +94,6 @@ public class Calculator {
         }
 
         postfix = sb.toString();
-        System.out.println(postfix);
         return postfix;
     }// end convertToPostfix
 
@@ -108,7 +107,7 @@ public class Calculator {
      */
     public double evaluatePostfix(String postfix) {
         // Evaluates a postfix expression. 
-        ResizableArrayStack<Integer> valueStack = new ResizableArrayStack<Integer>(0);
+        ResizableArrayStack<Integer> valueStack = new ResizableArrayStack<Integer>(10);
         int operandOne;
         int operandTwo;
 
@@ -116,7 +115,7 @@ public class Calculator {
             char nextCharacter = postfix.charAt(0);
 
             // remove first character from the postfix string
-            postfix.substring(1);
+            postfix = postfix.substring(1);
 
             switch (nextCharacter) {
                 case '0': case '1': case '2': case '3': case '4':
