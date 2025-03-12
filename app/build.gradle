@@ -35,7 +35,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'project2.taskcalcostack.App'
+    mainClass = 'project2.taskcalcostack.Main'
 }
 
 tasks.named('test') {
