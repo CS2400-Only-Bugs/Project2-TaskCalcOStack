@@ -1,3 +1,4 @@
+package project2.taskcalcostack;
 import project2.taskcalcostack.Calculator;
 
 import static org.junit.jupiter.api.Assertions.*;
