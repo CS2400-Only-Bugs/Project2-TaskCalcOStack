@@ -8,7 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
-    id 'java'
+    id 'java-library'
 }
 
 repositories {
@@ -16,25 +16,25 @@ repositories {
     mavenCentral()
 }
 
+version = '1.0.0-SNAPSHOT'
+
+tasks.withType(JavaCompile).configureEach {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	options.compilerArgs += '-parameters'
+}
+
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-
-    // This dependency is used by the application.
-    implementation libs.guava
-}
-
-// Apply a specific Java toolchain to ease working on different environments.
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+	api(platform("org.junit:junit-bom:5.12.0"))
+	api("org.junit.jupiter:junit-jupiter-api") {
+        because 'building extensions in "main" using JUnit Jupiter API'
     }
-}
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine") {
+        because 'at least one engine is needed at test runtime'
+    }
+	testRuntimeOnly('org.junit.platform:junit-platform-launcher')
 
-application {
-    // Define the main class for the application.
-    mainClass = 'project2.taskcalcostack.Main'
+    implementation 'com.google.guava:guava:31.0.1-jre'
 }
 
 test {

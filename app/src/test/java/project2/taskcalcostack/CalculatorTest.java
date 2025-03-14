@@ -19,57 +19,57 @@ class CalculatorTest {
         assertEquals("ab+", calculator.convertToPostfix("a+b"));
     }
 
-    // @Test
-    // @DisplayName("Simple subtraction equation")
-    // void testSimpleSubInfix() {
-    //     assertEquals("ab-", calculator.convertToPostfix("a-b"));
-    // }
+    @Test
+    @DisplayName("Simple subtraction equation")
+    void testSimpleSubInfix() {
+        assertEquals("ab-", calculator.convertToPostfix("a-b"));
+    }
 
-    // @Test
-    // @DisplayName("Simple multiplication equation")
-    // void testSimpleMultInfix() {
-    //     assertEquals("ab*", calculator.convertToPostfix("a*b"));
-    // }
+    @Test
+    @DisplayName("Simple multiplication equation")
+    void testSimpleMultInfix() {
+        assertEquals("ab*", calculator.convertToPostfix("a*b"));
+    }
 
-    // @Test
-    // @DisplayName("Simple division equation")
-    // void testSimpleDivInfix() {
-    //     assertEquals("ab/", calculator.convertToPostfix("a/b"));
-    // }
+    @Test
+    @DisplayName("Simple division equation")
+    void testSimpleDivInfix() {
+        assertEquals("ab/", calculator.convertToPostfix("a/b"));
+    }
 
-    // @Test
-    // @DisplayName("Complex addition subtraction equation")
-    // void testComplexAddSubInfix() {
-    //     assertEquals("ab+cd-+", calculator.convertToPostfix("(a+b)+(c-d)"));
-    // }
+    @Test
+    @DisplayName("Complex addition subtraction equation")
+    void testComplexAddSubInfix() {
+        assertEquals("ab+cd-+", calculator.convertToPostfix("(a+b)+(c-d)"));
+    }
 
-    // @Test
-    // @DisplayName("Complex multiplication division equation")
-    // void testComplexMultDivInfix() {
-    //     assertEquals("ab*cd/+", calculator.convertToPostfix("(a*b)+(c/d)"));
-    // }
+    @Test
+    @DisplayName("Complex multiplication division equation")
+    void testComplexMultDivInfix() {
+        assertEquals("ab*cd/+", calculator.convertToPostfix("(a*b)+(c/d)"));
+    }
 
-    // @Test
-    // @DisplayName("Complex equation using all operands")
-    // void testComplexAllInfix() {
-    //     assertEquals("ab+cd-*ef/+", calculator.convertToPostfix("(a+b)*(c-d)+(e/f)"));
-    // }
+    @Test
+    @DisplayName("Complex equation using all operands")
+    void testComplexAllInfix() {
+        assertEquals("ab+cd-*ef/+", calculator.convertToPostfix("(a+b)*(c-d)+(e/f)"));
+    }
 
-    // @Test
-    // @DisplayName("Operation with spaces")
-    // void testSpaceInfix() {
-    //     assertEquals("Error", calculator.convertToPostfix("a + b"));
-    // }
+    @Test
+    @DisplayName("Operation with spaces")
+    void testSpaceInfix() {
+        assertEquals("Error", calculator.convertToPostfix("a + b"));
+    }
 
-    // @Test
-    // @DisplayName("Operations with incorrect variables")
-    // void testInvalidVarInfix() {
-    //     assertEquals("Error", calculator.convertToPostfix("! + #"));
-    // }
+    @Test
+    @DisplayName("Operations with incorrect variables")
+    void testInvalidVarInfix() {
+        assertEquals("Error", calculator.convertToPostfix("! + #"));
+    }
 
-    // @Test
-    // @DisplayName("Empty Operations")
-    // void testEmptyInfix() {
-    //     assertEquals("Error", calculator.convertToPostfix(""));
-    // }
+    @Test
+    @DisplayName("Empty Operations")
+    void testEmptyInfix() {
+        assertEquals("Error", calculator.convertToPostfix(""));
+    }
 }
