@@ -9,7 +9,8 @@
 - **Name:** Jayden Briones
     - **Email:** jpbriones@cpp.edu
     - **Username:** Jaypb101
-    - **Role/Contribution:** ResizeableArray, Manual Stack
+    - **Role/Contribution:** ResizeableArray, Manual Stack, CalculatorTest, 
+                             Calculator
 
 - **Name:** Jordan Fleming
     - **Email:** fleming@cpp.edu
