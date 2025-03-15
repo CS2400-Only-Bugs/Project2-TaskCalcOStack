@@ -1,6 +1,8 @@
 package project2.taskcalcostack;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.EmptyStackException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,7 @@ class CalculatorTest {
     void setup() {
         calculator = new Calculator();
     }
-
+    //Conversion Tests
     @Test
     @DisplayName("Simple addition equation")
     void testSimpleAddInfix() {
@@ -58,18 +60,82 @@ class CalculatorTest {
     @Test
     @DisplayName("Operation with spaces")
     void testSpaceInfix() {
-        assertEquals("Error", calculator.convertToPostfix("a + b"));
+        Exception e = assertThrows(IllegalArgumentException.class, () -> calculator.convertToPostfix("a + b"));
+        assertEquals("Infix Contains Spaces", e.getMessage());
     }
 
     @Test
     @DisplayName("Operations with incorrect variables")
     void testInvalidVarInfix() {
-        assertEquals("Error", calculator.convertToPostfix("! + #"));
+        Exception e = assertThrows(IllegalArgumentException.class, () -> calculator.convertToPostfix("!+#"));
+        assertEquals("Invalid Character Detected !", e.getMessage());
     }
 
     @Test
     @DisplayName("Empty Operations")
     void testEmptyInfix() {
-        assertEquals("Error", calculator.convertToPostfix(""));
+        Exception e = assertThrows(IllegalArgumentException.class, () -> calculator.convertToPostfix(""));
+        assertEquals("Infix is Empty", e.getMessage());
+    }
+
+    //Evaluation Tests
+    @Test
+    @DisplayName("Simple Addition Equation")
+    void testSimpleAddPostfix(){
+        assertEquals(5, calculator.evaluatePostfix("23+"));
+    }
+
+    @Test
+    @DisplayName("Simple subtraction equation")
+    void testSimpleSubPostfix(){
+        assertEquals(-1, calculator.evaluatePostfix("23-"));
+    }
+
+    @Test
+    @DisplayName("Simple Multiplaction Equation")
+    void testSimpleMultPostfix(){
+        assertEquals(6, calculator.evaluatePostfix("23*"));
+    }
+
+    @Test
+    @DisplayName("Simple Division Equation")
+    void testSimpleDivPostfix(){
+        assertEquals(2/3, calculator.evaluatePostfix("23/"));
+    }
+
+    @Test
+    @DisplayName("Complex Addition Subtraction Equation")
+    void testComplexAddSubPostfix() {
+        assertEquals(4, calculator.evaluatePostfix("23+45-+"));
+    }
+
+    @Test
+    @DisplayName("Complex multiplication division equation")
+    void testComplexMultDivPostfix() {
+        assertEquals(6+4/5, calculator.evaluatePostfix("23*45/+"));
+    }
+
+    @Test
+    @DisplayName("Complex Postfix Equation Using All Operands")
+    void testComplexAllPostfix() {
+        assertEquals(-3, calculator.evaluatePostfix("23+45-*63/+"));
+    }
+
+    @Test
+    @DisplayName("Invalid Postfix Expression Throws Exception")
+    void testInvalidPostfix() {
+        assertThrows(EmptyStackException.class, () -> calculator.evaluatePostfix("2 + 3"));
+    }
+
+    @Test
+    @DisplayName("Postfix Operations With Incorrect Variables")
+    void testInvalidVarPostfix() {
+        assertThrows(EmptyStackException.class, () -> calculator.evaluatePostfix("! + -"));
+    }
+
+    @Test
+    @DisplayName("Empty Postfix Operations")
+    void testEmptyPostfix() {
+        assertThrows(EmptyStackException.class, () -> calculator.evaluatePostfix(""));
     }
 }
