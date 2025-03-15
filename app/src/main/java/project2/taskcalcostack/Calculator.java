@@ -44,6 +44,13 @@ public class Calculator {
      * @return the new postfix expression
      */
     public String convertToPostfix(String infix) {
+        if(infix.equals("")){
+            throw new IllegalArgumentException("Infix is Empty");
+        }
+
+        if(infix.contains(" ")){
+            throw new IllegalArgumentException("Infix Contains Spaces");
+        }
         infix = infix.toLowerCase();
         LinkedStack<Character> operatorStack = new LinkedStack<Character>();
         String postfix = null;
@@ -84,7 +91,7 @@ public class Calculator {
                         operatorStack.pop();
                         break;
                     default:
-                        break;
+                        throw new IllegalArgumentException("Invalid Character Detected " + nextCharacter);
                 }
             }
         }
