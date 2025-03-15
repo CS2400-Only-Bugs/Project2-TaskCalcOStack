@@ -1,4 +1,5 @@
 package project2.taskcalcostack;
+
 import java.util.EmptyStackException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,63 +17,63 @@ class CalculatorTest {
     }
     //Conversion Tests
     @Test
-    @DisplayName("Simple addition equation")
+    @DisplayName("Simple Postfix Addition Equation")
     void testSimpleAddInfix() {
         assertEquals("ab+", calculator.convertToPostfix("a+b"));
     }
 
     @Test
-    @DisplayName("Simple subtraction equation")
+    @DisplayName("Simple Postfix Subtraction Equation")
     void testSimpleSubInfix() {
         assertEquals("ab-", calculator.convertToPostfix("a-b"));
     }
 
     @Test
-    @DisplayName("Simple multiplication equation")
+    @DisplayName("Simple Postfix Multiplication Equation")
     void testSimpleMultInfix() {
         assertEquals("ab*", calculator.convertToPostfix("a*b"));
     }
 
     @Test
-    @DisplayName("Simple division equation")
+    @DisplayName("Simple Postfix Division Equation")
     void testSimpleDivInfix() {
         assertEquals("ab/", calculator.convertToPostfix("a/b"));
     }
 
     @Test
-    @DisplayName("Complex addition subtraction equation")
+    @DisplayName("Complex Postfix Addition Subtraction Equation")
     void testComplexAddSubInfix() {
         assertEquals("ab+cd-+", calculator.convertToPostfix("(a+b)+(c-d)"));
     }
 
     @Test
-    @DisplayName("Complex multiplication division equation")
+    @DisplayName("Complex Postfix Multiplication Division Equation")
     void testComplexMultDivInfix() {
         assertEquals("ab*cd/+", calculator.convertToPostfix("(a*b)+(c/d)"));
     }
 
     @Test
-    @DisplayName("Complex equation using all operands")
+    @DisplayName("Complex Postfix Equation Using All Operands")
     void testComplexAllInfix() {
         assertEquals("ab+cd-*ef/+", calculator.convertToPostfix("(a+b)*(c-d)+(e/f)"));
     }
 
     @Test
-    @DisplayName("Operation with spaces")
+    @DisplayName("Postfix Operation With Spaces")
     void testSpaceInfix() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> calculator.convertToPostfix("a + b"));
         assertEquals("Infix Contains Spaces", e.getMessage());
     }
 
     @Test
-    @DisplayName("Operations with incorrect variables")
+    @DisplayName("Postfix Operations With Incorrect Variables")
     void testInvalidVarInfix() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> calculator.convertToPostfix("!+#"));
         assertEquals("Invalid Character Detected !", e.getMessage());
     }
 
     @Test
-    @DisplayName("Empty Operations")
+    @DisplayName("Empty Postfix Operations")
     void testEmptyInfix() {
         Exception e = assertThrows(IllegalArgumentException.class, () -> calculator.convertToPostfix(""));
         assertEquals("Infix is Empty", e.getMessage());
@@ -80,37 +81,37 @@ class CalculatorTest {
 
     //Evaluation Tests
     @Test
-    @DisplayName("Simple Addition Equation")
+    @DisplayName("Simple Postfix Addition Equation")
     void testSimpleAddPostfix(){
         assertEquals(5, calculator.evaluatePostfix("23+"));
     }
 
     @Test
-    @DisplayName("Simple subtraction equation")
+    @DisplayName("Simple Postfix Subtraction Equation")
     void testSimpleSubPostfix(){
         assertEquals(-1, calculator.evaluatePostfix("23-"));
     }
 
     @Test
-    @DisplayName("Simple Multiplaction Equation")
+    @DisplayName("Simple Postfix Multiplaction Equation")
     void testSimpleMultPostfix(){
         assertEquals(6, calculator.evaluatePostfix("23*"));
     }
 
     @Test
-    @DisplayName("Simple Division Equation")
+    @DisplayName("Simple Postfix Division Equation")
     void testSimpleDivPostfix(){
         assertEquals(2/3, calculator.evaluatePostfix("23/"));
     }
 
     @Test
-    @DisplayName("Complex Addition Subtraction Equation")
+    @DisplayName("Complex Postfix Addition Subtraction Equation")
     void testComplexAddSubPostfix() {
         assertEquals(4, calculator.evaluatePostfix("23+45-+"));
     }
 
     @Test
-    @DisplayName("Complex multiplication division equation")
+    @DisplayName("Complex Postfix Multiplication Division Equation")
     void testComplexMultDivPostfix() {
         assertEquals(6+4/5, calculator.evaluatePostfix("23*45/+"));
     }
