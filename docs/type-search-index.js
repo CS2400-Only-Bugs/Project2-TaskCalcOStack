@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"project2.taskcalcostack","l":"Calculator"},{"p":"project2.taskcalcostack","l":"LinkedStack"},{"p":"project2.taskcalcostack","l":"Main"},{"p":"project2.taskcalcostack","l":"ResizableArrayStack"},{"p":"project2.taskcalcostack","l":"StackInterface"}];updateSearchResults();
