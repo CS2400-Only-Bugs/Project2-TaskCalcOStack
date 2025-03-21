@@ -4,7 +4,7 @@
 - **Name:** Ryan Vu
     - **Email:** ryanvu@cpp.edu
     - **Username:** RyanVu612
-    - **Role/Contribution:** Project Lead
+    - **Role/Contribution:** Project Lead, Evaluate Postfix, JUnit implementation
 
 - **Name:** Jayden Briones
     - **Email:** jpbriones@cpp.edu
